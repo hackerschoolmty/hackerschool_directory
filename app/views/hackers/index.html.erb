@@ -15,6 +15,7 @@
       <th>Email</th>
       <th>Generation</th>
       <th>Languages</th>
+      <th>Estatus</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -26,6 +27,7 @@
         <td><%= hacker.email %></td>
         <td><%= hacker.generation.name %></td>
         <td><%= hacker.languages.map(&:name).join(", ") %></td>
+        <td><%= hacker.status %></td>
         <td>
 
         <%= link_to "Editar",
@@ -35,6 +37,10 @@
                       :method => :delete,
                       :data => { confirm: "¿Estás seguro?" },
                       :class => 'btn btn-xs btn-danger' %>
+
+
+      <%= status_link(hacker) %>
+
         </td>
       </tr>
     <% end %>

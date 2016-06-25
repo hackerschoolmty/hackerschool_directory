@@ -37,6 +37,14 @@ class HackersController < ApplicationController
     end
   end
 
+  def activate
+    @hacker = Hacker.find(params[:id])
+    @hacker.status =  @hacker.active? ? "inactive" : "active"
+    @hacker.save
+    flash[:notice] = "Status was set to #{@hacker.status}"
+    redirect_to hackers_path
+
+  end
   # PATCH/PUT /hackers/1
   # PATCH/PUT /hackers/1.json
   def update

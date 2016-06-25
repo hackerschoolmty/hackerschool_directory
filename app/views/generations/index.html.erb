@@ -23,9 +23,9 @@
       <tr>
         <td><%= link_to generation.id, generation_path(generation) %></td>
         <td><%= generation.name %></td>
-        <td><%= generation.start_date.strftime("%d/%B/%Y") %></td>
-        <td><%= generation.created_at.strftime("%d/%B/%Y %H:%M") %></td>
-        <td><%= generation.updated_at.strftime("%d/%B/%Y %H:%M") %></td>
+        <td><%= generation.start_date.strftime("%B/%d/%Y") %></td>
+        <td><%= generation.created_at.strftime("%B/%d/%Y %H:%M") %></td>
+        <td><%= generation.updated_at.strftime("%B/%d/%Y %H:%M") %></td>
         <td>
           <%= link_to "Editar",
                       edit_generation_path(generation), class: 'btn btn-default btn-xs' %>
@@ -39,4 +39,3 @@
     <% end %>
   </tbody>
 </table>
-

@@ -2,9 +2,14 @@ Rails.application.routes.draw do
   get 'reports/general'
 
   resources :courses
-  resources :hackers
+
+  resources :hackers do
+    put :activate, on: :member  
+  end
   resources :generations
   resources :languages
+
+
 
   root to: "generations#index"
   # The priority is based upon order of creation: first created -> highest priority.
