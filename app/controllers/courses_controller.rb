@@ -1,5 +1,6 @@
 class CoursesController < ApplicationController
   skip_before_action :authenticate_hacker!, only: :index
+  before_action :set_generation
   before_action :set_course, only: [:show, :edit, :update, :destroy]
 
   # GET /courses
@@ -15,7 +16,7 @@ class CoursesController < ApplicationController
 
   # GET /courses/new
   def new
-    @course = Course.new
+    @course = @generation.courses.new
   end
 
   # GET /courses/1/edit
@@ -25,11 +26,11 @@ class CoursesController < ApplicationController
   # POST /courses
   # POST /courses.json
   def create
-    @course = Course.new(course_params)
+    @course = @generation.courses.new(course_params)
 
     respond_to do |format|
       if @course.save
-        format.html { redirect_to @course, notice: 'Course was successfully created.' }
+        format.html { redirect_to generation_courses_path(@generation), notice: 'Course was successfully created.' }
         format.json { render :show, status: :created, location: @course }
       else
         format.html { render :new }
@@ -63,6 +64,10 @@ class CoursesController < ApplicationController
   end
 
   private
+
+    def set_generation
+      @generation = Generation.find(params[:generation_id])
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_course
       @course = Course.find(params[:id])

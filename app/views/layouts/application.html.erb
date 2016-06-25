@@ -41,7 +41,7 @@
     <div class="navbar navbar-default navbar-static-top">
       <ul class="nav navbar navbar-right">
         <%if hacker_signed_in? %>
-          <li><%= current_hacker.email %></li>
+          <li><%= link_to current_hacker.email,  edit_hacker_registration_path %></li>
           <li><%= link_to "Cerrar sesión", destroy_hacker_session_path, method: :delete %></li>
         <% else %>
           <li><%= link_to "Regístrarse", new_hacker_registration_path %></li>
@@ -60,7 +60,7 @@
             <ul class="nav navbar-nav">
               <li><%= link_to "Generaciones", generations_path  %></li>
               <li><%= link_to "Hackers", hackers_path  %></li>
-              <li><%= link_to "Cursos", courses_path  %></li>
+              
               <li><%= link_to "Lenguajes", languages_path  %></li>
             </ul>
             <% end %>
