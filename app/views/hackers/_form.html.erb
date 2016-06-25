@@ -25,7 +25,12 @@
   <div class="form-group">
     <label class="control-label col-lg-2">Generación</label>
     <%= f.select :generation_id, Generation.all.map {|generation| [generation.name, generation.id]}, include_blank: "Seleccione" %>
-  </div>
+	</div>
+
+	<div>
+		<label class="control-label col-lg-2">Lenguajes</label>
+		<%= f.text_field :langs, value: "#{ @hacker.languages.map(&:name).map(&:upcase).join(", ") }" %>
+	</div>
 
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">

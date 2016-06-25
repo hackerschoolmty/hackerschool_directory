@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @hacker.name %>'s language<%= @hacker.languages.size > 1 ? "s" : "" %></h1>
+
+<ul>
+  <% @hacker.languages.each do |lang| %>
+  <li><%= lang.name %> | <b>Skill:</b> <%= lang.skill %></li>
+  <% end %>
+</ul>

@@ -1,0 +1,22 @@
+<h1>
+  Reporte
+</h1>
+
+<h2>Hacker section - (<%= @hackers.length %>)</h2>
+<ul>
+  <% @hackers.each do |hacker| %>
+  <li><%= hacker.name %></li>
+  <% end %>
+
+</ul>
+
+
+
+
+
+<h2>Course section - (<%= @courses.size %>)</h2>
+<ul>
+  <% @courses.each do |course| %>
+  <li><%= course.name %></li>
+  <% end %>
+</ul>

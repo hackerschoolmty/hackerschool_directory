@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
+  get 'reports/general'
+
+  resources :courses
   resources :hackers
   resources :generations
+  resources :languages
+
+  root to: "generations#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

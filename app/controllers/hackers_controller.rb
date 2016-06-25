@@ -1,5 +1,5 @@
 class HackersController < ApplicationController
-  before_action :set_hacker, only: [:show, :edit, :update, :destroy]
+  before_action :set_hacker, only: [:show, :edit, :update, :destroy, :languages]
 
   # GET /hackers
   # GET /hackers.json
@@ -41,6 +41,8 @@ class HackersController < ApplicationController
   # PATCH/PUT /hackers/1.json
   def update
     respond_to do |format|
+      langs = params[:hacker][:langs].split(',')
+
       if @hacker.update(hacker_params)
         format.html { redirect_to @hacker, notice: 'Hacker was successfully updated.' }
         format.json { render :show, status: :ok, location: @hacker }
@@ -59,6 +61,9 @@ class HackersController < ApplicationController
       format.html { redirect_to hackers_url, notice: 'Hacker was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def languages
   end
 
   private

@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Nombre:</strong>
   <%= @hacker.name %>
 </p>
 
@@ -11,8 +11,17 @@
 </p>
 
 <p>
-  <strong>Generation:</strong>
-  <%= @hacker.generation_id %>
+  <strong>Generación:</strong>
+  <%= @hacker.generation.name %>
+</p>
+
+<p>
+  <strong>Lenguajes</strong>
+  <ul>
+    <% @hacker.languages.each do |lang|  %>
+    <li><%= lang.name %></li>
+    <% end %>
+  </ul>
 </p>
 
 <%= link_to 'Edit', edit_hacker_path(@hacker) %> |

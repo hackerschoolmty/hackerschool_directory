@@ -14,6 +14,7 @@
       <th>Name</th>
       <th>Email</th>
       <th>Generation</th>
+      <th>Languages</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -21,10 +22,10 @@
   <tbody>
     <% @hackers.each do |hacker| %>
       <tr>
-        <td><%= hacker.name %></td>
+        <td><%= link_to hacker.name, hacker %></td>
         <td><%= hacker.email %></td>
-
         <td><%= hacker.generation.name %></td>
+        <td><%= hacker.languages.map(&:name).join(", ") %></td>
         <td>
 
         <%= link_to "Editar",
@@ -41,4 +42,3 @@
 </table>
 
 <br>
-
