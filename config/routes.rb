@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
+  devise_for :hackers
   get 'reports/general'
 
-  resources :courses
 
   resources :hackers do
     put :activate, on: :member  
   end
-  resources :generations
+  resources :generations do
+    resources :courses do
+    end
+  end
   resources :languages
 
 
